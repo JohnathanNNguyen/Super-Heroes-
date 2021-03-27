@@ -16,7 +16,6 @@ class App extends React.Component {
       }
     );
     this.setState({ heroInfo: response.data.data.results });
-    console.log(this.state.heroInfo);
   };
   render() {
     return <SearchBar onSearch={this.onHeroSearch} />;
