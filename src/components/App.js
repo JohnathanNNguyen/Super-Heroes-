@@ -1,8 +1,9 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 // import superHeroAPI from '../api/SuperHeroAPI';
 import axios from 'axios';
-import HeroList from './HeroList';
+// import HeroList from './HeroList';
+import './app.css';
 
 class App extends React.Component {
   state = { heroInfo: [] };
@@ -22,10 +23,17 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
-        <SearchBar onSearch={this.onHeroSearch} />
-        <HeroList images={this.state.heroInfo} />
-      </div>
+      // <div>
+      //   <SearchBar onSearch={this.onHeroSearch} />
+      //   <HeroList images={this.state.heroInfo} />
+      // </div>
+      <React.Fragment>
+        <a href="#sec-1">sec1</a>
+        <a href="#sec-2">sec2</a>
+        <div className="blank"></div>
+        <div className="sec1" id="sec-1"></div>
+        <div className="sec2" id="sec-2"></div>
+      </React.Fragment>
     );
   }
 }

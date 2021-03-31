@@ -10,13 +10,6 @@ const HeroList = (props) => {
       />
     );
   });
-  // const description = props.description.map(({ name }) => {
-  //   return (
-  //     <div>
-  //       <h1>{name}</h1>
-  //     </div>
-  //   );
-  // });
 
   return <div>{images}</div>;
 };
