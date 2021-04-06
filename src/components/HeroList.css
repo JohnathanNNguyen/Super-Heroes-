@@ -1,0 +1,45 @@
+div.row {
+  display: flex;
+  justify-content: center;
+}
+img {
+  border-radius: 20px;
+  /* margin: 10px; */
+  width: 100%;
+  min-width: 350px;
+  height: 345px;
+  object-fit: cover;
+  padding: 10px;
+}
+/* div.img-container {
+  position: relative;
+} */
+.overlay {
+  align-items: center;
+  cursor: pointer;
+  background: #11e7eede;
+  bottom: 0;
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+div.img-container:hover .overlay {
+  visibility: visible;
+  opacity: 0.8;
+}
+div.col {
+  border-radius: 20px;
+  transition: 0.5s ease;
+  padding: 0px;
+  /* position: absolute; */
+}

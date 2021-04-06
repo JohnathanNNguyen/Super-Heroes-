@@ -1,32 +1,35 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-// import superHeroAPI from '../api/SuperHeroAPI';
-import axios from 'axios';
+import superHeroAPI from '../api/SuperHeroAPI';
 import HeroList from './HeroList';
 import './app.css';
+// bootstrap
+import Container from 'react-bootstrap/Container';
 
 class App extends React.Component {
   state = { heroInfo: [] };
 
+  componentDidMount() {
+    this.onHeroSearch();
+  }
+
   onHeroSearch = async (input) => {
-    const response = await axios.get(
-      `https://gateway.marvel.com/v1/public/characters`,
-      {
-        params: {
-          nameStartsWith: input,
-          apikey: process.env.REACT_APP_PUBLIC_KEY,
-        },
-      }
-    );
+    const response = await superHeroAPI.get(`/characters`, {
+      params: {
+        nameStartsWith: input,
+      },
+    });
     this.setState({ heroInfo: response.data.data.results });
     console.log('heroInfo', this.state.heroInfo);
   };
+
   render() {
     return (
-      <div>
+      <Container>
         <SearchBar onSearch={this.onHeroSearch} />
+
         <HeroList images={this.state.heroInfo} />
-      </div>
+      </Container>
     );
   }
 }
