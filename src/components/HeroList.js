@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './HeroList.css';
+import './HeroList.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AOS from 'aos';
@@ -18,7 +18,11 @@ const HeroList = (props) => {
       return (
         <Col key={id}>
           <div data-aos="fade-up" className="img-container">
-            <img src={thumbnail.path + '.' + thumbnail.extension} alt={name} />
+            <img
+              className="hero-container"
+              src={thumbnail.path + '.' + thumbnail.extension}
+              alt={name}
+            />
             <div className="overlay"></div>
           </div>
         </Col>

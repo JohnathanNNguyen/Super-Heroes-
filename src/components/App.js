@@ -2,7 +2,8 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import superHeroAPI from '../api/SuperHeroAPI';
 import HeroList from './HeroList';
-import './app.css';
+import Header from './Header';
+import './app.scss';
 // bootstrap
 import Container from 'react-bootstrap/Container';
 
@@ -26,11 +27,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
-        <SearchBar onSearch={this.onHeroSearch} />
-
-        <HeroList images={this.state.heroInfo} />
-      </Container>
+      <React.Fragment>
+        <Header />
+        <Container>
+          <SearchBar onSearch={this.onHeroSearch} />
+          <HeroList images={this.state.heroInfo} />
+        </Container>
+      </React.Fragment>
     );
   }
 }
