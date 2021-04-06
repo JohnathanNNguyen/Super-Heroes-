@@ -17,6 +17,7 @@ class App extends React.Component {
     const response = await superHeroAPI.get(`/characters`, {
       params: {
         nameStartsWith: input,
+        limit: '50',
       },
     });
     this.setState({ heroInfo: response.data.data.results });
