@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './HeroList.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import SuperHero from '../api/SuperHeroAPI';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const HeroList = (props) => {
+  const [comicsList, setComicsList] = useState([]);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+  useEffect(() => {});
   const images = props.images.map(({ id, thumbnail, name }) => {
     if (
       thumbnail.path !==
