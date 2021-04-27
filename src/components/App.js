@@ -19,10 +19,10 @@ class App extends React.Component {
 
   onHeroSearch = async (input) => {
     const response = await superHeroAPI.get(`/characters`, {
-      // params: {
-      //   nameStartsWith: input,
-      //   limit: '50',
-      // },
+      params: {
+        nameStartsWith: input,
+        limit: '50',
+      },
     });
     this.setState({ heroInfo: response.data.data.results });
     console.log('heroInfo', this.state.heroInfo);
