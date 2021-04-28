@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // bootstrap
 import Container from 'react-bootstrap/Container';
+import HeroDetails from './HeroDetails';
 
 class App extends React.Component {
   state = { heroInfo: [] };
@@ -35,9 +36,12 @@ class App extends React.Component {
           <Header />
           <Container>
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <SearchBar onSearch={this.onHeroSearch} />
                 <HeroList images={this.state.heroInfo} />
+              </Route>
+              <Route path="/hero/details">
+                <HeroDetails />
               </Route>
             </Switch>
           </Container>
