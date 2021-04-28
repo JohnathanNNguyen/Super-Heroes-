@@ -5,7 +5,7 @@ import HeroList from './HeroList';
 import Header from './Header';
 import './app.scss';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // bootstrap
 import Container from 'react-bootstrap/Container';
@@ -30,13 +30,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <Container>
-          <SearchBar onSearch={this.onHeroSearch} />
-          <HeroList images={this.state.heroInfo} />
-        </Container>
-      </React.Fragment>
+      <Router>
+        <React.Fragment>
+          <Header />
+          <Container>
+            <Switch>
+              <Route path="/">
+                <SearchBar onSearch={this.onHeroSearch} />
+                <HeroList images={this.state.heroInfo} />
+              </Route>
+            </Switch>
+          </Container>
+        </React.Fragment>
+      </Router>
     );
   }
 }
