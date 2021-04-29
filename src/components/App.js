@@ -29,9 +29,11 @@ class App extends React.Component {
     console.log('heroInfo', this.state.heroInfo);
   };
 
+  // You can route inside a function with the code below
   //     componentDidMount(){
   //   this.props.history.push('/login');
   // }
+
   render() {
     return (
       <Router>
