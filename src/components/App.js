@@ -29,6 +29,9 @@ class App extends React.Component {
     console.log('heroInfo', this.state.heroInfo);
   };
 
+  //     componentDidMount(){
+  //   this.props.history.push('/login');
+  // }
   render() {
     return (
       <Router>
