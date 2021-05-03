@@ -16,37 +16,39 @@ const HeroList = (props) => {
   }, []);
   // useEffect(() => {});
 
-  const images = props.images.map(({ id, thumbnail, name }) => {
-    const onGetComics = () => {
-      console.log(id);
-
-      history.push('/hero/details');
-    };
-
-    if (
-      thumbnail.path !==
-      'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available'
-    ) {
-      return (
-        <Col key={id}>
-          <div
-            data-aos="fade-up"
-            className="img-container"
-            onClick={onGetComics}
-          >
-            <img
-              className="hero-container"
-              src={thumbnail.path + '.' + thumbnail.extension}
-              alt={name}
-            />
-            <div className="overlay"></div>
-          </div>
-        </Col>
-      );
-    } else {
-      return '';
+  const images = props.images.map(
+    ({ id, thumbnail, name, comics }, index, data) => {
+      const onGetComics = () => {
+        setComicsList(data[index].comics.items);
+        console.log('comicsList', comicsList);
+        // history.push('/hero/details');
+      };
+      if (
+        thumbnail.path !==
+        'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available'
+      ) {
+        return (
+          <Col key={index}>
+            <div
+              data-aos="fade-up"
+              className="img-container"
+              onClick={onGetComics}
+            >
+              <img
+                className="hero-container"
+                src={thumbnail.path + '.' + thumbnail.extension}
+                alt={name}
+              />
+              <h3>{name}</h3>
+              <div className="overlay"></div>
+            </div>
+          </Col>
+        );
+      } else {
+        return '';
+      }
     }
-  });
+  );
 
   return (
     <div>
