@@ -18,11 +18,11 @@ const HeroList = (props) => {
 
   const images = props.images.map(
     ({ id, thumbnail, name, comics }, index, data) => {
-      const onGetComics = () => {
-        setComicsList(data[index].comics.items);
-        console.log('comicsList', comicsList);
-        // history.push('/hero/details');
-      };
+      // const onGetComics = () => {
+      //   setComicsList(data[index].comics.items);
+      //   console.log('comicsList', comicsList);
+      //   // history.push('/hero/details');
+      // };
       if (
         thumbnail.path !==
         'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available'
@@ -32,7 +32,7 @@ const HeroList = (props) => {
             <div
               data-aos="fade-up"
               className="img-container"
-              onClick={onGetComics}
+              onClick={() => props.onGetComics(comics.items)}
             >
               <img
                 className="hero-container"

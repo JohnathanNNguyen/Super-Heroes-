@@ -12,7 +12,7 @@ import Container from 'react-bootstrap/Container';
 import HeroDetails from './HeroDetails';
 
 class App extends React.Component {
-  state = { heroInfo: [] };
+  state = { heroInfo: [], heroComics: [] };
 
   componentDidMount() {
     this.onHeroSearch();
@@ -29,6 +29,10 @@ class App extends React.Component {
     console.log('heroInfo', this.state.heroInfo);
   };
 
+  onGetComics = (data) => {
+    console.log(data);
+  };
+
   // You can route inside a function with the code below
   //     componentDidMount(){
   //   this.props.history.push('/login');
@@ -43,7 +47,10 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/">
                 <SearchBar onSearch={this.onHeroSearch} />
-                <HeroList images={this.state.heroInfo} />
+                <HeroList
+                  images={this.state.heroInfo}
+                  onGetComics={this.onGetComics}
+                />
               </Route>
               <Route path="/hero/details">
                 <HeroDetails />
