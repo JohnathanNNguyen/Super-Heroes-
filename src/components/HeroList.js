@@ -32,7 +32,7 @@ const HeroList = (props) => {
             <div
               data-aos="fade-up"
               className="img-container"
-              onClick={() => props.onGetComics(comics.items)}
+              onClick={() => props.onGetComics(id)}
             >
               <img
                 className="hero-container"

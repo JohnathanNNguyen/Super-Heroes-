@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // bootstrap
 import Container from 'react-bootstrap/Container';
 import HeroDetails from './HeroDetails';
+import SuperHeroAPI from '../api/SuperHeroAPI';
 
 class App extends React.Component {
   state = { heroInfo: [], heroComics: [] };
@@ -29,14 +30,15 @@ class App extends React.Component {
     console.log('heroInfo', this.state.heroInfo);
   };
 
-  onGetComics = (data) => {
-    console.log(data);
+  onGetComics = async (data) => {
+    const response = await SuperHeroAPI.get(`/characters/${data}/comics`, {
+      params: {
+        limit: '50',
+      },
+    });
+    this.setState({ heroComics: response.data.data.results });
+    console.log(this.heroComics);
   };
-
-  // You can route inside a function with the code below
-  //     componentDidMount(){
-  //   this.props.history.push('/login');
-  // }
 
   render() {
     return (
