@@ -37,7 +37,8 @@ class App extends React.Component {
       },
     });
     this.setState({ heroComics: response.data.data.results });
-    console.log(this.heroComics);
+    console.log(this.state.heroComics);
+    window.location.href = '/comics';
   };
 
   render() {
@@ -55,6 +56,9 @@ class App extends React.Component {
                 />
               </Route>
               <Route path="/hero/details">
+                <HeroDetails />
+              </Route>
+              <Route path="/comics">
                 <HeroDetails />
               </Route>
             </Switch>
