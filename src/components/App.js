@@ -59,7 +59,7 @@ class App extends React.Component {
                 <HeroDetails />
               </Route>
               <Route path="/comics">
-                <HeroDetails />
+                <HeroDetails comics={this.state.heroComics} />
               </Route>
             </Switch>
           </Container>

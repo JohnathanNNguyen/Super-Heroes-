@@ -1,11 +1,12 @@
 import React from 'react';
 
-const HeroDetails = () => {
-  return (
-    <div>
-      <h2>New HERO</h2>
-    </div>
-  );
+const HeroDetails = (props) => {
+  const comics = props.comics.map((data) => {
+    console.log('data', data);
+    return <div>{data.title}</div>;
+  });
+
+  return <div>{comics}</div>;
 };
 
 export default HeroDetails;
