@@ -30,16 +30,17 @@ class App extends React.Component {
     console.log('heroInfo', this.state.heroInfo);
   };
 
-  onGetComics = async (data) => {
-    const response = await SuperHeroAPI.get(`/characters/${data}/comics`, {
-      params: {
-        limit: '50',
-      },
-    });
-    this.setState({ heroComics: response.data.data.results });
-    console.log(this.state.heroComics);
-    window.location.href = '/comics';
-  };
+  // onGetComics = async (data) => {
+  //   const response = await SuperHeroAPI.get(`/characters/${data}/comics`, {
+  //     params: {
+  //       limit: '50',
+  //     },
+  //   });
+  //   this.setState({ heroComics: response.data.data.results });
+  //   console.log();
+  //   console.log(this.state.heroComics);
+  //   this.props.history.push('/comics');
+  // };
 
   render() {
     return (

@@ -16,13 +16,25 @@ const HeroList = (props) => {
   }, []);
   // useEffect(() => {});
 
+  // const onGetComics = async (data) => {
+  //   const response = await SuperHero.get(`/characters/${data}/comics`, {
+  //     params: {
+  //       limit: '50',
+  //     },
+  //   });
+  //   // this.setState({ heroComics: response.data.data.results });
+  //   console.log();
+  //   console.log(this.state.heroComics);
+  //   // this.props.history.push('/comics')
+  // };
+
   const images = props.images.map(
     ({ id, thumbnail, name, comics }, index, data) => {
-      // const onGetComics = () => {
-      //   setComicsList(data[index].comics.items);
-      //   console.log('comicsList', comicsList);
-      //   // history.push('/hero/details');
-      // };
+      const onGetComics = () => {
+        setComicsList(data[index].comics.items);
+        console.log('comicsList', comicsList);
+        // history.push('/hero/details');
+      };
       if (
         thumbnail.path !==
         'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available'
@@ -52,7 +64,7 @@ const HeroList = (props) => {
 
   return (
     <div>
-      <Row md={1} lg={2} xl={3}>
+      {/* <Row md={1} lg={2} xl={3}> */}
         {images}
       </Row>
     </div>
